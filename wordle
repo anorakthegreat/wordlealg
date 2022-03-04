@@ -1,0 +1,427 @@
+    var myArray = []
+    var temp = "mt"
+    var mt = []
+    var splitans = "s"
+
+    var first
+    var second
+    var third
+    var fourth
+    var fifth
+
+    var firsts
+    var seconds
+    var thirds
+    var fourths
+    var fifths
+
+    var firstbool
+    var secondbool
+    var thirdbool
+    var fourthbool
+    var fifthbool
+
+    var amount
+
+    var one1
+    var x1
+
+    var two1
+    var two2
+    var x2
+    var y2
+
+    var three1
+    var three2
+    var three3
+    var x3
+    var y3
+    var z3
+
+    var four1
+    var four2
+    var four3
+    var four4
+    var x4
+    var y4
+    var z4
+    var s4
+
+    var five1
+    var five2
+    var five3
+    var five4
+    var five5
+    var x5
+    var y5
+    var z5
+    var s5
+    var q5
+
+
+    fetch ("https://www.nytimes.com/games/wordle/main.4951a4aa.js")
+        .then(x => x.text())
+        .then(y => {
+            let wordArray = y.slice(y.indexOf('var Ma='), y.indexOf(',Oa='))
+                .replace('var Ma=', '')
+                .replace('[', '')
+                .replace(']', '')
+                .replace(/"/g, '')
+                .split(',')
+                
+            //console.log(wordArray[0])
+
+            
+            function whatpos(pos, anyt){
+                if(pos == 1){
+                    anyt = firstbool
+                }
+
+                if(pos == 2){
+                    anyt = secondbool
+                }
+
+                if(pos == 3){
+                    anyt = thirdbool
+                }
+
+                if(pos == 4){
+                    anyt = fourthbool
+                }
+                if(pos == 5){
+                    anyt = fifthbool
+                }
+                
+                return anyt
+
+            }
+            var answer = prompt('what word did you input?')
+            splitans = answer.split("")
+            console.log(splitans)
+
+            first = prompt("Was the first letter green, yellow, or blank? 1 for green, 2 for yellow, 3 for blank")
+            second = prompt("Was the second letter green, yellow, or blank? 1 for green, 2 for yellow, 3 for blank")
+            third = prompt("Was the third letter green, yellow, or blank? 1 for green, 2 for yellow, 3 for blank")
+            fourth = prompt("Was the fourth letter green, yellow, or blank? 1 for green, 2 for yellow, 3 for blank")
+            fifth = prompt("Was the fifth letter green, yellow, or blank? 1 for green, 2 for yellow, 3 for blank")
+            amount = prompt("How many letters were yellow or green")
+            if(amount == 1){
+                one1 = prompt("What position is it in")
+            }
+            if(amount == 2){
+                two1 = prompt("What position is the first one in")
+                two2 = prompt("What position is the second one on")
+
+            }
+            if(amount == 3){
+                three1 = prompt("What position is the first one in")
+                three2 = prompt("What position is the second one on")
+                three3 = prompt("What position sis the third one")
+
+            }
+            if(amount == 4){
+                four1 = prompt("What position is the first one in")
+                four2 = prompt("What position is the second one on")
+                four3 = prompt("What position is the third one")
+                four4 = prompt("What position is the fourth one")
+
+            }
+            if(amount == 5){
+                five1 = prompt("What position is the first one in")
+                five2 = prompt("What position is the second one on")
+                five3 = prompt("What position is the third one")
+                five4 = prompt("What position is the fourth one")
+                five5 = prompt("What position is the fourth one")
+
+
+            }
+
+
+            for(var i = 0; i < wordArray.length; i++){
+                temp = wordArray[i]
+                myArray = temp.split("")
+
+                //defines booleans for each letter
+                if(first == 1){
+                    firstbool = myArray[0].includes(splitans[0])
+                }
+                if(first == 2){
+                    if(myArray[0].includes(splitans[0])){
+                        continue
+                    }
+                    firstbool = myArray.includes(splitans[0])
+                }
+
+                if(second == 1){
+                    secondbool = myArray[1].includes(splitans[1])
+                }
+                if(second == 2){
+                    if(myArray[1].includes(splitans[1])){
+                        continue
+                    }
+                    secondbool = myArray.includes(splitans[1])
+                }
+
+                if(third == 1){
+                    thirdbool = myArray[2].includes(splitans[2])
+                }
+                if(third == 2){
+                    if(myArray[2].includes(splitans[2])){
+                        continue
+                    }
+                    thirdbool = myArray.includes(splitans[2])
+                }
+
+                if(fourth == 1){
+                    fourthbool = myArray[3].includes(splitans[3])
+                }
+                if(fourth == 2){
+                    if(myArray[3].includes(splitans[3])){
+                        continue
+                    }
+                    fourthbool = myArray.includes(splitans[3])
+                }
+
+                if(fifth == 1){
+                    fifthbool = myArray[4].includes(splitans[4])
+                }
+                if(fifth == 2){
+                    if(myArray[4].includes(splitans[4])){
+                        continue
+                    }
+                    fifthbool = myArray.includes(splitans[4])
+                }
+
+
+                if(amount == 1){
+                    // if(one1 == 1){
+                    //     x1 = firstbool
+                    // }
+
+                    // if(one1 == 2){
+                    //     x1 = secondbool
+                    // }
+
+                    // if(one1 == 3){
+                    //     x1 = thirdbool
+                    // }
+
+                    // if(one1 == 4){
+                    //     x1 = fourthbool
+                    // }
+                    // if(one1 == 5){
+                    //     x1 = fifthbool
+                    // }
+                    x1 = whatpos(one1, x1)
+
+                    if(x1){
+                        if(first == 3){
+                            if(myArray.includes(splitans[0])){
+                                continue
+                            }
+                        }
+                        if(second == 3){
+                            if(myArray.includes(splitans[1])){
+                                continue
+                            }
+                        }
+                        if(third == 3){
+                            if(myArray.includes(splitans[2])){
+                                continue
+                            }
+                        }
+                        if(fourth == 3){
+                            if(myArray.includes(splitans[3])){
+                                continue
+                            }
+                        }
+                        if(fifth == 3){
+                            if(myArray.includes(splitans[4])){
+                                continue
+                            }
+                        }
+                        mt.push(wordArray[i])
+
+                    }
+                }
+
+                if(amount == 2){
+                    x2 = whatpos(two1, x2)
+                    y2 = whatpos(two2, y2)
+
+                    if(x2 && y2){
+                        if(first == 3){
+                            if(myArray.includes(splitans[0])){
+                                continue
+                            }
+                        }
+                        if(second == 3){
+                            if(myArray.includes(splitans[1])){
+                                continue
+                            }
+                        }
+                        if(third == 3){
+                            if(myArray.includes(splitans[2])){
+                                continue
+                            }
+                        }
+                        if(fourth == 3){
+                            if(myArray.includes(splitans[3])){
+                                continue
+                            }
+                        }
+                        if(fifth == 3){
+                            if(myArray.includes(splitans[4])){
+                                continue
+                            }
+                        }
+                        mt.push(wordArray[i])
+
+                    }
+                }
+
+                if(amount == 3){
+                    x3 = whatpos(three1, x3)
+                    y3 = whatpos(three2, y3)
+                    z3 = whatpos(three3, z3)
+
+                    if(x3 && y3 && z3){
+                        if(first == 3){
+                            if(myArray.includes(splitans[0])){
+                                continue
+                            }
+                        }
+                        if(second == 3){
+                            if(myArray.includes(splitans[1])){
+                                continue
+                            }
+                        }
+                        if(third == 3){
+                            if(myArray.includes(splitans[2])){
+                                continue
+                            }
+                        }
+                        if(fourth == 3){
+                            if(myArray.includes(splitans[3])){
+                                continue
+                            }
+                        }
+                        if(fifth == 3){
+                            if(myArray.includes(splitans[4])){
+                                continue
+                            }
+                        }
+                        mt.push(wordArray[i])
+
+                    }
+                }
+                if(amount == 4){
+                    x4 = whatpos(four1, x4)
+                    y4 = whatpos(four2, y4)
+                    z4 = whatpos(four3, z4)
+                    s4 = whatpos(four4, s4)
+
+
+                    if(x4 && y4 && z4 && s4){
+                        if(first == 3){
+                            if(myArray.includes(splitans[0])){
+                                continue
+                            }
+                        }
+                        if(second == 3){
+                            if(myArray.includes(splitans[1])){
+                                continue
+                            }
+                        }
+                        if(third == 3){
+                            if(myArray.includes(splitans[2])){
+                                continue
+                            }
+                        }
+                        if(fourth == 3){
+                            if(myArray.includes(splitans[3])){
+                                continue
+                            }
+                        }
+                        if(fifth == 3){
+                            if(myArray.includes(splitans[4])){
+                                continue
+                            }
+                        }
+                        mt.push(wordArray[i])
+
+                    }
+                }
+                if(amount == 5){
+                    x5 = whatpos(five1, x5)
+                    y5 = whatpos(five2, y5)
+                    z5 = whatpos(five3, z5)
+                    s5 = whatpos(five4, s5)
+                    q5 = whatpos(five5, q5)
+
+
+                    if(x5 && y5 && z5 && s5 && q5){
+                        if(first == 3){
+                            if(myArray.includes(splitans[0])){
+                                continue
+                            }
+                        }
+                        if(second == 3){
+                            if(myArray.includes(splitans[1])){
+                                continue
+                            }
+                        }
+                        if(third == 3){
+                            if(myArray.includes(splitans[2])){
+                                continue
+                            }
+                        }
+                        if(fourth == 3){
+                            if(myArray.includes(splitans[3])){
+                                continue
+                            }
+                        }
+                        if(fifth == 3){
+                            if(myArray.includes(splitans[4])){
+                                continue
+                            }
+                        }
+                        mt.push(wordArray[i])
+
+                    }
+                }
+
+
+
+
+                // if(myArray[0].includes('c') && myArray[1].includes('h')){
+                //     mt.push(wordArray[i])
+                // }
+
+                
+            }
+            
+
+        
+        console.log(mt)
+        
+        
+
+
+
+        var answer2 = prompt(mt + "What is your next word choice?")
+                
+    });
+
+    //  var wordArray = ["blue", "red"]
+
+    //  var temp = wordArray[0]
+
+    //  var theArray = temp.split("")
+
+    //  console.log(theArray)
+
+    // array = ['a', 'b', 'c', 'd', 'c']
+    // array = array.filter(v => v !== 'b'); 
+    // console.log(array)
+
